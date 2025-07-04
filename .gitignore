@@ -1,0 +1,5 @@
+*.tfstate
+.terraform/
+*.log
+*.pem
+.vscode/
