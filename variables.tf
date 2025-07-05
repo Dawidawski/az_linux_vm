@@ -18,3 +18,7 @@ variable "admin_username" {
   type    = string
   default = "azureadmin"
 }
+variable "initpath" {
+  type    = string
+  default = "init.sh"
+}

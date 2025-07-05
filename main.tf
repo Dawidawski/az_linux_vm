@@ -65,18 +65,6 @@ resource "azurerm_network_security_group" "nsg" {
 
 
   }
-  security_rule {
-    name                   = "HTTPS"
-    priority               = 1003
-    direction              = "Inbound"
-    access                 = "Allow"
-    protocol               = "Tcp"
-    source_port_range      = "*"
-    destination_port_range = "443"
-    source_address_prefix  = "*"
-    destination_address_prefix = "*"
-
-  }
 }
 resource "azurerm_network_interface" "nic" {
   name                = "linux_nic"
@@ -125,4 +113,5 @@ resource "azurerm_linux_virtual_machine" "linux_vm" {
     sku       = "22_04-lts"
     version   = "latest"
   }
+  custom_data = filebase64(var.initpath)
 }
